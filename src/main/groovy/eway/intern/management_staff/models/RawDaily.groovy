@@ -1,0 +1,31 @@
+package eway.intern.management_staff.models
+
+import com.fasterxml.jackson.databind.PropertyNamingStrategy
+import com.fasterxml.jackson.databind.annotation.JsonNaming
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
+
+import java.time.LocalDate
+import java.time.LocalTime
+
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@Document(collection = "raw_dailies")
+class RawDaily {
+
+    @Id
+    String id
+
+    String fingerId
+
+    String userName
+
+    LocalDate date
+
+    LocalTime checkIn
+
+    LocalTime checkOut
+
+    LocalDate createdAt
+
+    LocalDate modifiedAt
+}
