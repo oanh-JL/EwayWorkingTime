@@ -16,9 +16,9 @@ class DayOff {
     String id
 
     @Indexed(unique = true)
-    String dayOffId
+    int dayOffId
 
-    String dayOffTypeId
+    int dayOffTypeId
 
     String description
 
