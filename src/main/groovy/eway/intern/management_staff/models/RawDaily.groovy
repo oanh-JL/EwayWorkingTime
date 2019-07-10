@@ -15,7 +15,7 @@ class RawDaily {
     @Id
     String id
 
-    String fingerId
+    int fingerId
 
     String userName
 
@@ -26,6 +26,4 @@ class RawDaily {
     LocalTime checkOut
 
     LocalDate createdAt
-
-    LocalDate modifiedAt
 }
