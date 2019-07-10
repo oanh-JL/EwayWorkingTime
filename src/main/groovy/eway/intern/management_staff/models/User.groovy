@@ -21,7 +21,7 @@ class User {
     String organizationId
 
     @Indexed(unique = true)
-    String fingerId
+    int fingerId
 
     @Indexed(unique = true)
     String userId
