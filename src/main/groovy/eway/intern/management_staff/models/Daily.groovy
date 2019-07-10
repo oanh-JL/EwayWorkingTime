@@ -16,7 +16,7 @@ class Daily {
     @Id
     String id
 
-    String fingerId
+    int fingerId
 
     LocalDate date
 
