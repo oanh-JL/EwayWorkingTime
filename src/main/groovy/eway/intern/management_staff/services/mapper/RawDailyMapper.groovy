@@ -13,14 +13,6 @@ class RawDailyMapper {
         rawDaily.setDate(LocalDate.parse(rawDaily.getDate().toString()))
         rawDaily.setCheckIn(LocalTime.parse(rawDaily.getCheckIn().toString()))
         rawDaily.setCheckOut(LocalTime.parse(rawDaily.getCheckOut().toString()))
-        rawDaily.setCreatedAt(LocalDate.now())
-        rawDaily.setModifiedAt(null)
-    }
-
-    static void update(RawDaily rawDaily) {
-        rawDaily.setDate(LocalDate.parse(rawDaily.getDate().toString()))
-        rawDaily.setCheckIn(LocalTime.parse(rawDaily.getCheckIn().toString()))
-        rawDaily.setCheckOut(LocalTime.parse(rawDaily.getCheckOut().toString()))
-        rawDaily.setModifiedAt(LocalDate.now())
+        rawDaily.setCreatedAt(LocalDate.parse(rawDaily.getCreatedAt().toString()))
     }
 }
