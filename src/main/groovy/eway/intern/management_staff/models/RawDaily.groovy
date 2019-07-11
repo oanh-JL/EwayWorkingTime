@@ -26,4 +26,6 @@ class RawDaily {
     LocalTime checkOut
 
     LocalDate createdAt
+
+    LocalDate modifiedAt
 }
