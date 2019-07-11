@@ -49,6 +49,11 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
+    User findByUserName(String userName) {
+        return repository.findByUserName(userName)
+    }
+
+    @Override
     ResponseEntity<SystemResponse> update(User user) {
         User userFound = repository.findById(user.getId()).orElse(null)
         if (userFound) {

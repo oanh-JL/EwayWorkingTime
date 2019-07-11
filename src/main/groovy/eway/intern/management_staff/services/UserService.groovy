@@ -13,6 +13,8 @@ interface UserService {
 
     User findByUserId(String userId)
 
+    User findByUserName(String userName)
+
     ResponseEntity<SystemResponse> update(User user)
 
     ResponseEntity<SystemResponse> delete(String userId)
