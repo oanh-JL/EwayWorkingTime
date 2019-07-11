@@ -12,4 +12,6 @@ interface UserRepository extends MongoRepository<User, String> {
     Page<User> findAllPagingUser(Pageable pageable)
 
     User findByUserId(String userId)
+
+    User findByUserName(String userName)
 }

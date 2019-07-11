@@ -24,12 +24,16 @@ class UserController {
     @Autowired
     UserService service
 
+    @Autowired
+    UserRepository repository
+
+
     @PostMapping
     ResponseEntity<SystemResponse> create(@RequestBody User user) {
         return service.create(user)
     }
 
-    @GetMapping
+
     PageResponse<User> findAllPagingUser(
             @RequestParam(name = "page", required = false, defaultValue = "0") Integer page,
             @RequestParam(name = "size", required = false, defaultValue = "10") Integer size,
@@ -51,5 +55,9 @@ class UserController {
     @DeleteMapping("/{user_id}")
     ResponseEntity<SystemResponse> delete(@PathVariable("user_id") String userId) {
         return service.delete(userId)
+    }
+    @GetMapping
+    List<User> getAll (){
+        return repository.findAll()
     }
 }
