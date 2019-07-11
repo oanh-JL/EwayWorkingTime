@@ -8,4 +8,6 @@ import java.time.LocalDate
 interface RawDailyRepository extends MongoRepository<RawDaily, String> {
 
     List<RawDaily> findAllByDate(LocalDate date)
+
+   RawDaily findByFingerIdAndDate(int fingerId, LocalDate date)
 }
