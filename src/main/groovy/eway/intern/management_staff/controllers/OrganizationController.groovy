@@ -1,6 +1,6 @@
 package eway.intern.management_staff.controllers
 
-import eway.intern.management_staff.controllers.viewmodel.SystemResponse
+import eway.intern.management_staff.controllers.viewmodel.response.SystemResponse
 import eway.intern.management_staff.models.Organization
 import eway.intern.management_staff.services.OrganizationService
 import org.springframework.beans.factory.annotation.Autowired

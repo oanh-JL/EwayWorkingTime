@@ -10,15 +10,11 @@ import java.time.LocalTime
 class DailyMapper {
 
     static void create(Daily daily) {
-
         LocalTime checkIn = LocalTime.parse(daily.getCheckIn().toString())
         LocalTime checkOut = LocalTime.parse(daily.getCheckOut().toString())
-
         daily.setDate(LocalDate.parse(daily.getDate().toString()))
         daily.setCheckIn(checkIn)
         daily.setCheckOut(checkOut)
-        daily.setCreatedAt(LocalDate.now())
-        daily.setModifiedAt(null)
 
     }
 

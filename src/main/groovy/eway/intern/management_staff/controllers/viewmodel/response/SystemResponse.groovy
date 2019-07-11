@@ -1,4 +1,4 @@
-package eway.intern.management_staff.controllers.viewmodel
+package eway.intern.management_staff.controllers.viewmodel.response
 
 
 class SystemResponse {

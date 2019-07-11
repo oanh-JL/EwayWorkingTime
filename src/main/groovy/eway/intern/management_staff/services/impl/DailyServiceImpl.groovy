@@ -1,17 +1,16 @@
 package eway.intern.management_staff.services.impl
 
-import eway.intern.management_staff.controllers.viewmodel.SystemResponse
-import eway.intern.management_staff.models.BallotRequest
 import eway.intern.management_staff.models.Daily
+import eway.intern.management_staff.models.RawDaily
 import eway.intern.management_staff.repositories.DailyRepository
 import eway.intern.management_staff.services.DailyService
 import eway.intern.management_staff.services.mapper.DailyMapper
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
+
 import org.springframework.stereotype.Service
 
 import java.time.LocalDate
+import java.time.LocalTime
 
 @Service
 class DailyServiceImpl implements DailyService {
@@ -22,41 +21,48 @@ class DailyServiceImpl implements DailyService {
     DailyRepository repository
 
     @Override
-    ResponseEntity<SystemResponse> create(Daily daily) {
-        mapper.create(daily)
-        repository.save(daily)
-        return new ResponseEntity<SystemResponse>(SystemResponse.systemResponseMap.get("inserted"), HttpStatus.OK)
-    }
-
-    @Override
-    ResponseEntity<SystemResponse> update(Daily daily) {
-        Daily dailyFound = repository.findById(daily.getId()).orElse(null)
-        if (dailyFound) {
-            mapper.update(daily)
+    void create(RawDaily raw) {
+        Daily daily = parseDaily(raw)
+        Daily dailyFound = repository.findByFingerIdAndDate(daily.fingerId, daily.date)
+        if (!dailyFound) {
+            mapper.create(daily)
+            daily.setCreatedAt(LocalDate.now())
+            daily.setModifiedAt(null)
             repository.save(daily)
-            return new ResponseEntity<SystemResponse>(SystemResponse.systemResponseMap.get("updated"), HttpStatus.OK)
         }
-        return new ResponseEntity<SystemResponse>(SystemResponse.systemResponseMap.get("notfound"), HttpStatus.NOT_FOUND)
     }
 
     @Override
-    Daily findByFingerIdAndDate(String fingerId, String date) {
-        return repository.findByFingerIdAndDate(fingerId, LocalDate.parse(date))
-    }
-
-    @Override
-    ResponseEntity<SystemResponse> delete(String fingerId, String date) {
-        Daily dailyFound = repository.findByFingerIdAndDate(fingerId, LocalDate.parse(date))
+    void update(RawDaily raw) {
+        Daily daily = parseDaily(raw)
+        Daily dailyFound = repository.findByFingerIdAndDate(daily.fingerId, daily.date)
         if (dailyFound) {
-            repository.delete(dailyFound)
-            return new ResponseEntity<SystemResponse>(SystemResponse.systemResponseMap.get("deleted"), HttpStatus.OK)
+            daily.setId(dailyFound.getId())
+            daily.setStatus(dailyFound.status)
+            daily.setTotalTime(dailyFound.totalTime)
+            mapper.create(daily)
+            repository.save(daily)
         }
-        return new ResponseEntity<SystemResponse>(SystemResponse.systemResponseMap.get("notfound"), HttpStatus.NOT_FOUND)
     }
 
-    @Override
-    ResponseEntity<SystemResponse> confirm(BallotRequest ballotRequest) {
-        return null
+    static Daily parseDaily(RawDaily raw) {
+        int status = 1
+        String totalTime = "00:00"
+        LocalTime nullTime = LocalTime.parse("00:00")
+        String day = LocalDate.parse(raw.date.toString()).dayOfWeek
+        if (raw.checkIn == nullTime && raw.checkOut == nullTime) {
+            status = 0
+        }
+        if (day.equals("SATURDAY") || day.equals("SUNDAY")) {
+            status = 0
+        }
+        return new Daily(raw.fingerId,
+                raw.date,
+                raw.checkIn,
+                raw.checkOut,
+                LocalTime.parse(totalTime),
+                status,
+                raw.createdAt,
+                raw.modifiedAt)
     }
-
 }

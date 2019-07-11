@@ -1,7 +1,6 @@
 package eway.intern.management_staff.services.mapper
 
 import eway.intern.management_staff.models.Role
-import eway.intern.management_staff.models.User
 import org.springframework.stereotype.Component
 
 import java.time.LocalDate

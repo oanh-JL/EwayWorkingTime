@@ -1,12 +1,13 @@
 package eway.intern.management_staff.controllers
 
-import eway.intern.management_staff.controllers.viewmodel.SystemResponse
+import eway.intern.management_staff.controllers.viewmodel.response.SystemResponse
 import eway.intern.management_staff.models.AnnualDayOff
 import eway.intern.management_staff.services.AnnualDayOffService
 import org.bson.Document
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+
 
 @RestController
 @RequestMapping("/annual_day_off")
