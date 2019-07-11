@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDate
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-@Document(collection = "details")
 class Detail {
 
     @Id

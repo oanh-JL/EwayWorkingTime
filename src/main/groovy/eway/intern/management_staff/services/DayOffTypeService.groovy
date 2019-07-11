@@ -1,6 +1,6 @@
 package eway.intern.management_staff.services
 
-import eway.intern.management_staff.controllers.viewmodel.SystemResponse
+import eway.intern.management_staff.controllers.viewmodel.response.SystemResponse
 import eway.intern.management_staff.models.DayOffType
 import org.springframework.http.ResponseEntity
 

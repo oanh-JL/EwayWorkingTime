@@ -7,6 +7,6 @@ import java.time.LocalDate
 
 interface DailyRepository extends MongoRepository<Daily, String> {
 
-    Daily findByFingerIdAndDate(String fingerId, LocalDate date)
+    Daily findByFingerIdAndDate(int fingerId, LocalDate date)
 
 }

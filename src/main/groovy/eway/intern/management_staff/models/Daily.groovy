@@ -31,4 +31,16 @@ class Daily {
     LocalDate createdAt
 
     LocalDate modifiedAt
+
+    Daily(int fingerId, LocalDate date, LocalTime checkIn, LocalTime checkOut, LocalTime totalTime,
+          int status, LocalDate createdAt, LocalDate modifiedAt) {
+        this.fingerId = fingerId
+        this.date = date
+        this.checkIn = checkIn
+        this.checkOut = checkOut
+        this.totalTime = totalTime
+        this.status = status
+        this.createdAt = createdAt
+        this.modifiedAt = modifiedAt
+    }
 }
