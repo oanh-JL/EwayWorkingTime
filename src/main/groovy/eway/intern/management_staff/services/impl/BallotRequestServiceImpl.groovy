@@ -1,6 +1,6 @@
 package eway.intern.management_staff.services.impl
 
-import eway.intern.management_staff.controllers.viewmodel.SystemResponse
+import eway.intern.management_staff.controllers.viewmodel.response.SystemResponse
 import eway.intern.management_staff.models.BallotRequest
 import eway.intern.management_staff.repositories.BallotRequestRepository
 import eway.intern.management_staff.services.BallotRequestService

@@ -1,6 +1,6 @@
 package eway.intern.management_staff.services.impl
 
-import eway.intern.management_staff.controllers.viewmodel.SystemResponse
+import eway.intern.management_staff.controllers.viewmodel.response.SystemResponse
 import eway.intern.management_staff.models.CyclePayRoll
 import eway.intern.management_staff.repositories.CyclePayRoleRepository
 import eway.intern.management_staff.services.CyclePayRollService

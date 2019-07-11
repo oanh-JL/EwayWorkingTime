@@ -31,6 +31,8 @@ class User {
     @Indexed(unique = true)
     String email
 
+    String googleId
+
     String userName
 
     String password

@@ -1,6 +1,6 @@
 package eway.intern.management_staff.services.impl
 
-import eway.intern.management_staff.controllers.viewmodel.SystemResponse
+import eway.intern.management_staff.controllers.viewmodel.response.SystemResponse
 import eway.intern.management_staff.models.AnnualDayOff
 import eway.intern.management_staff.repositories.AnnualDayOffRepository
 import eway.intern.management_staff.services.AnnualDayOffService
@@ -18,8 +18,6 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 
-import java.text.SimpleDateFormat
-import java.time.Instant
 import java.time.LocalDate
 
 @Service
