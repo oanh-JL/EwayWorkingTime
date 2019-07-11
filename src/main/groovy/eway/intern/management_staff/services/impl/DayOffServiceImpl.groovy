@@ -1,6 +1,6 @@
 package eway.intern.management_staff.services.impl
 
-import eway.intern.management_staff.controllers.viewmodel.SystemResponse
+import eway.intern.management_staff.controllers.viewmodel.response.SystemResponse
 import eway.intern.management_staff.models.DayOff
 import eway.intern.management_staff.repositories.DayOffRepository
 import eway.intern.management_staff.services.DayOffService
